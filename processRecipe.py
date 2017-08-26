@@ -13,13 +13,6 @@ with open(FILENAME, 'r') as text:
 title = lines[0]
 raw_steps = lines[1:]
 
-# class step():
-#     def __init__(self, givenTime, text):
-#         self.givenTime = givenTime
-#         self.text = text
-#
-#     def isTimed(self):
-#         return self.givenTime == -1
 processed_steps = []
 stepNumber = 1
 for line in raw_steps:
@@ -37,6 +30,12 @@ for line in raw_steps:
         step["lengthMins"] = ""
 
     processed_steps.append(step)
+
+with open('recipe1.json', 'w+') as outfile:
+    for data in processed_steps:
+        json.dump(data,outfile)
+        outfile.write(",\n")
+
 
 
 
