@@ -1,0 +1,17 @@
+[
+    {
+        "title" : "Perfect hard-boiled egg",
+        "backgroundImgUrl" : "",
+        "totalLengthMins" : "",
+        "metadata" : "",
+        "steps" : [
+            {
+                "stepNumber" : "",
+                "text" : "",
+                "isTimed" : "false",
+                "lengthMins" : "",
+                "ingredients" : ["egg"],
+            }
+        ]
+    }
+]
