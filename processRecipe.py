@@ -11,6 +11,7 @@ with open(FILENAME, 'r') as text:
 
 for line in lines:
     print(line)
+
 # with open(FILENAME, 'r') as text:
 #     for line in text:
 #         try:
