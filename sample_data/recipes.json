@@ -9,7 +9,9 @@
                 "stepNumber" : "",
                 "text" : "",
                 "isTimed" : "false",
+		"lengthHours" : "",
                 "lengthMins" : "",
+		"lengthSec" : "",
                 "ingredients" : ["egg"],
             }
         ]
