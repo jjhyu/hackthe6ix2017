@@ -18,7 +18,7 @@ raw_steps = lines[(1+breakIndex):]
 processed_steps = []
 
 minute_types = {"minutes", "mins", "m", "minute", "min", "minutes\n", "mins\n", "m\n", "minute\n", "min\n"}
-hour_types = {"hour", "hours", "hr", "h", "hrs","hour\n", "hours\n", "hr\n", "h\n", "hrs\n", }
+hour_types = {"hour", "hours", "hr", "h", "hrs","hour\n", "hours\n", "hr\n", "h\n", "hrs\n", "hours.\n"}
 second_types = {"second", "seconds", "s", "sec", "second\n", "seconds\n", "s\n", "sec\n"}
 
 stepNumber = 1
