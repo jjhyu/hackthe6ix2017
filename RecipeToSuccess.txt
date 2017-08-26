@@ -1,0 +1,8 @@
+Test "Recipe" with Random Times
+1.Watch Rick and Morty for 20 minutes
+2.Watch GoT for 1 hour
+3.Go to a hackathon for 12 hours
+4.Fk around for the full 12 hrs
+5.Win the hackathon after 1 hour
+6.Spend 90 mins going home
+7.Cri for 8 days
