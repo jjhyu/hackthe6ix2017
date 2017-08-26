@@ -67,6 +67,7 @@ for line in raw_steps:
 
 with open(bareFILENAME + '.json', 'w+') as outfile:
     json_title = json.dump({"title":title}, outfile)
+    outfile.write(",\n")
     for data in processed_steps:
         json.dump(data,outfile)
         outfile.write(",\n")
