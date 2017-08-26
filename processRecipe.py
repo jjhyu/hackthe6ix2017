@@ -1,8 +1,9 @@
 import json
-import string
-FILENAME = 'recipe1.txt'
-lines = []
+import sys
 
+FILENAME = sys.argv[1]
+lines = []
+bareFILENAME = FILENAME.split(".")[0]
 with open(FILENAME, 'r') as text:
     for line in text:
         try:
@@ -15,9 +16,9 @@ raw_steps = lines[1:]
 
 processed_steps = []
 
-minute_types = {"minutes", "mins", "m", "minute", "min"}
-hour_types = {"hour", "hours", "hr", "h", "hrs"}
-second_types = {"second", "seconds", "s", "sec"}
+minute_types = {"minutes", "mins", "m", "minute", "min", "minutes\n", "mins\n", "m\n", "minute\n", "min\n"}
+hour_types = {"hour", "hours", "hr", "h", "hrs","hour\n", "hours\n", "hr\n", "h\n", "hrs\n", }
+second_types = {"second", "seconds", "s", "sec", "second\n", "seconds\n", "s\n", "sec\n"}
 
 stepNumber = 1
 for line in raw_steps:
@@ -64,23 +65,9 @@ for line in raw_steps:
 
     processed_steps.append(step)
 
-with open('recipe1.json', 'w+') as outfile:
+with open(bareFILENAME + '.json', 'w+') as outfile:
+    json_title = json.dump({"title":title}, outfile)
+    outfile.write(",\n")
     for data in processed_steps:
         json.dump(data,outfile)
         outfile.write(",\n")
-
-
-
-
-# with open(FILENAME, 'r') as text:
-#     for line in text:
-#         try:
-#             parsed_line = json.loads(line)
-#             if "key" in parsed_line and parsed_line["key"] is not None and \
-#                 parsed_line["key"] == parsed_line["key"][::-1]:
-#                 words.append(parsed_line["key"])
-#                 count += 1
-#         except ValueError:
-#             debug_print("Line is not json formatted")
-
-
