@@ -1,7 +1,10 @@
 import json
 import sys
 
-FILENAME = sys.argv[1]
+try:
+    FILENAME = sys.argv[1]
+except IndexError:
+    sys.exit()
 lines = []
 bareFILENAME = FILENAME.split(".")[0]
 with open(FILENAME, 'r') as text:
@@ -69,6 +72,8 @@ for line in raw_steps:
 with open(bareFILENAME + '.json', 'w+') as outfile:
     json_title = json.dump({"title":title}, outfile)
     outfile.write(",\n")
+    outfile.write("{steps: ")
     for data in processed_steps:
         json.dump(data,outfile)
         outfile.write(",\n")
+    outfile.write("}")
