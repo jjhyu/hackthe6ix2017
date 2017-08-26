@@ -12,7 +12,8 @@ with open(FILENAME, 'r') as text:
             print("Error, unread line")
 
 title = lines[0]
-raw_steps = lines[1:]
+breakIndex = lines.index('\n')
+raw_steps = lines[(1+breakIndex):]
 
 processed_steps = []
 
