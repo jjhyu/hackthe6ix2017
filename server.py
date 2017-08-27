@@ -13,11 +13,10 @@ class MainHandler(tornado.web.RequestHandler):
 
 class FetchAllRecipesHandler(tornado.web.RequestHandler):
     def get(self):
-        recipe_id = self.get_arguments("rid")
-        print(recipe_id)
-        array = [{"recipe" : "1"},{"recipe" : 2.5}]
-        json_array = json.dumps(array)
-        self.write(json_array)
+        for recipe_id in ["1","2","3"]:
+            print(recipe_id)
+            self.write(processRecipe.processRecipe("testing_examples/recipe" + recipe_id +".txt"))
+            self.write("\n")
 
 def make_app():
     return tornado.web.Application([(r"/", MainHandler),
