@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+var tts = require('react-native-android-speech')
 // import ViewRecipe  from './screens/ViewRecipe';
 
 
@@ -76,6 +77,19 @@ class ViewRecipe extends Component {
   }
 
   startCurrStep() {
+      tts.speak({
+        text:'Please provide some text to speak.', // Mandatory
+        pitch:1.5, // Optional Parameter to set the pitch of Speech,
+        forceStop : true , //  Optional Parameter if true , it will stop TTS if it is already in process
+    }).then(isSpeaking=>{
+        //Success Callback
+        alert("done");
+        console.log(isSpeaking);
+    }).catch(error=>{
+        //Errror Callback
+        alert(error)
+        console.log(error)
+    });
     var stepLengthSecs = this.getCurrStepTimeSecs();
     if (stepLengthSecs) {
       this.startTimer();
