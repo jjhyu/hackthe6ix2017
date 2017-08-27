@@ -114,7 +114,7 @@ class ViewRecipe extends Component {
   }
 }
 
-export default class App extends React.Component {
+export default class DetailedRecipeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>

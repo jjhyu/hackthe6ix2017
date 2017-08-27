@@ -48,15 +48,8 @@ class AppLaunch extends Component {
     Promise.all([
       this.props.getMeals(),
       this.props.getRecipes(),
-    ]).then(() => {
-      // Once we've preloaded basic content,
-      // - Try to authenticate based on existing token
-      this.props.login()
-        // Logged in, show index screen
-        .then(() => Actions.app({ type: 'reset' }))
-        // Not Logged in, show Login screen
-        .catch(() => Actions.authenticate({ type: 'reset' }));
-    }).catch(err => Alert.alert(err.message));
+    ]).then(() => Actions.startScreen())
+    .catch(err => Alert.alert(err.message));
   }
 
   render = () => (
