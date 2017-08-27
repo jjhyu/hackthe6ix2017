@@ -16,7 +16,10 @@ import Drawer from '@containers/ui/DrawerContainer';
 // Scenes
 import AppLaunch from '@containers/Launch/LaunchContainer';
 import Placeholder from '@components/general/Placeholder';
-import AuthScenes from './auth';
+
+import StartScreen from '@containers/views/StartScreen';
+import RecipeScreen from '@containers/views/RecipeScreen';
+import DetailedRecipeScreen from '@containers/views/DetailedRecipeScreen';
 import TabsScenes from './tabs';
 
 /* Routes ==================================================================== */
@@ -24,30 +27,25 @@ export default Actions.create(
   <Scene key={'root'} {...AppConfig.navbarProps}>
     <Scene
       hideNavBar
-      key={'splash'}
+      key='splash'
       component={AppLaunch}
       analyticsDesc={'AppLaunch: Launching App'}
     />
-
-    {/* Auth */}
-    {AuthScenes}
-
-    {/* Main App */}
-    <Scene key={'app'} {...AppConfig.navbarProps} title={AppConfig.appName} hideNavBar={false} type={ActionConst.RESET}>
-      {/* Drawer Side Menu */}
-      <Scene key={'home'} component={Drawer} initial={'tabBar'}>
-        {/* Tabbar */}
-        {TabsScenes}
-      </Scene>
-
-      {/* General */}
-      <Scene
-        clone
-        key={'comingSoon'}
-        title={'Coming Soon'}
-        component={Placeholder}
-        analyticsDesc={'Placeholder: Coming Soon'}
+    <Scene
+      hideNavBar
+      key='startScreen'
+      component={StartScreen}
+      analyticsDesc={'Welcome'}
       />
-    </Scene>
-  </Scene>,
+     <Scene
+      key='recipeScreen'
+      component={RecipeScreen}
+      analyticsDesc={'Recipes'}
+      />
+      <Scene
+      key='detailedRecipeScreen'
+      component={DetailedRecipeScreen}
+      analyticsDesc={'Recipes'}
+      />
+  </Scene>
 );
